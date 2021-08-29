@@ -1,10 +1,5 @@
-import * as React from 'react'
-import styles from './styles.module.css'
+import createAdminStore from './packages/ra-core/src/core/createAdminStore';
 
-interface Props {
-  text: string
-}
-
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
+export {
+  createAdminStore
+};

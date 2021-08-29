@@ -1,28 +1,33 @@
 # react-admin-native
 
-> react-admin files needed for react native
-
-[![NPM](https://img.shields.io/npm/v/react-admin-native.svg)](https://www.npmjs.com/package/react-admin-native) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+> [react-admin](https://github.com/marmelab/react-admin) files needed for react native
 
 ## Install
 
 ```bash
-npm install --save react-admin-native
+$ npm install --save @npmdanej/react-admin-native
 ```
 
-## Usage
+### View in browser
 
-```tsx
-import React, { Component } from 'react'
+```bash
+$ cd example
+$ npm start
+```
 
-import MyComponent from 'react-admin-native'
-import 'react-admin-native/dist/index.css'
+### Test
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
-}
+```bash
+$ npm run test
+```
+
+### Deploy to NPM
+
+1. Update version in package.json
+2. Publish to NPM
+
+```bash
+$ npm publish
 ```
 
 ## License
