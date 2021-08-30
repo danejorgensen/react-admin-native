@@ -61,6 +61,7 @@
     "dist"
   ],
   "dependencies": {
+    "query-string": "^7.0.1",
     "redux": "^4.1.1",
     "redux-saga": "^1.1.3"
   }

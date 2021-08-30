@@ -55,13 +55,13 @@ export type I18nProvider = {
     [key: string]: any;
 };
 
-// export interface UserIdentity {
-//     id: Identifier;
-//     fullName?: string;
-//     avatar?: string;
-//     [key: string]: any;
-// }
-// 
+export interface UserIdentity {
+    id: Identifier;
+    fullName?: string;
+    avatar?: string;
+    [key: string]: any;
+}
+
 /**
  * authProvider types
  */
