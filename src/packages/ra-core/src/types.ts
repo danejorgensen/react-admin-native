@@ -471,32 +471,32 @@ export type InitialState = object | (() => object);
 //     icon?: ComponentType<any>;
 //     options?: object;
 // }
-// 
-// export interface AdminProps {
-//     appLayout?: LayoutComponent;
-//     authProvider?: AuthProvider | LegacyAuthProvider;
-//     catchAll?: CatchAllComponent;
-//     children?: AdminChildren;
-//     customReducers?: object;
-//     customRoutes?: CustomRoutes;
-//     customSagas?: any[];
-//     dashboard?: DashboardComponent;
-//     dataProvider: DataProvider | LegacyDataProvider;
-//     disableTelemetry?: boolean;
-//     history?: History;
-//     i18nProvider?: I18nProvider;
-//     initialState?: InitialState;
-//     layout?: LayoutComponent;
-//     loading?: ComponentType;
-//     locale?: string;
-//     loginPage?: LoginComponent | boolean;
-//     logoutButton?: ComponentType;
-//     menu?: ComponentType;
-//     ready?: ComponentType;
-//     theme?: ThemeOptions;
-//     title?: TitleComponent;
-// }
-// 
+
+export interface AdminProps {
+///     appLayout?: LayoutComponent;
+    authProvider: AuthProvider; /// | LegacyAuthProvider;
+///     catchAll?: CatchAllComponent;
+    children?: any; /// AdminChildren;
+///     customReducers?: object;
+///     customRoutes?: CustomRoutes;
+///     customSagas?: any[];
+///     dashboard?: DashboardComponent;
+    dataProvider: DataProvider; /// | LegacyDataProvider;
+///     disableTelemetry?: boolean;
+///     history?: History;
+///     i18nProvider?: I18nProvider;
+///     initialState?: InitialState;
+///     layout?: LayoutComponent;
+///     loading?: ComponentType;
+///     locale?: string;
+///     loginPage?: LoginComponent | boolean;
+///     logoutButton?: ComponentType;
+///     menu?: ComponentType;
+///     ready?: ComponentType;
+///     theme?: ThemeOptions;
+///     title?: TitleComponent;
+}
+
 // export type Exporter = (
 //     data: any,
 //     fetchRelatedRecords: (
