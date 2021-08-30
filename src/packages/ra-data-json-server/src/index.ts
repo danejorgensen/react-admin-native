@@ -35,7 +35,7 @@ import { DataProvider } from '../../ra-core/src/types';
  *
  * export default App;
  */
-export default (apiUrl, httpClient = fetchUtils.fetchJson): DataProvider => ({
+export default (apiUrl: string, httpClient = fetchUtils.fetchJson): DataProvider => ({
     getList: (resource, params) => {
         const { page, perPage } = params.pagination;
         const { field, order } = params.sort;
@@ -54,10 +54,20 @@ export default (apiUrl, httpClient = fetchUtils.fetchJson): DataProvider => ({
                     'The X-Total-Count header is missing in the HTTP Response. The jsonServer Data Provider expects responses for lists of resources to contain this header with the total number of results to build the pagination. If you are using CORS, did you declare X-Total-Count in the Access-Control-Expose-Headers header?'
                 );
             }
+
+            // TODO: simplify this
+            let total: string;
+            if(headers.get('x-total-count')) {
+              // @ts-ignore: Object is possibly 'null'.
+              total = headers.get('x-total-count').split('/').pop();
+            } else {
+              total = '0';
+            }
+
             return {
                 data: json,
                 total: parseInt(
-                    headers.get('x-total-count').split('/').pop(),
+                    total,
                     10
                 ),
             };
@@ -96,10 +106,20 @@ export default (apiUrl, httpClient = fetchUtils.fetchJson): DataProvider => ({
                     'The X-Total-Count header is missing in the HTTP Response. The jsonServer Data Provider expects responses for lists of resources to contain this header with the total number of results to build the pagination. If you are using CORS, did you declare X-Total-Count in the Access-Control-Expose-Headers header?'
                 );
             }
+
+            // TODO: simplify this
+            let total: string;
+            if(headers.get('x-total-count')) {
+              // @ts-ignore: Object is possibly 'null'.
+              total = headers.get('x-total-count').split('/').pop();
+            } else {
+              total = '0';
+            }
+
             return {
                 data: json,
                 total: parseInt(
-                    headers.get('x-total-count').split('/').pop(),
+                    total,
                     10
                 ),
             };
