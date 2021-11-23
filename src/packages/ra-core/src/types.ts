@@ -226,80 +226,80 @@ export interface DeleteManyResult {
 //     | UpdateResult<RecordType>
 //     | UpdateManyResult;
 // 
-// export type DataProviderProxy = {
-//     getList: <RecordType extends Record = Record>(
-//         resource: string,
-//         params: GetListParams,
-//         options?: UseDataProviderOptions
-//     ) => Promise<GetListResult<RecordType>>;
-// 
-//     getOne: <RecordType extends Record = Record>(
-//         resource: string,
-//         params: GetOneParams,
-//         options?: UseDataProviderOptions
-//     ) => Promise<GetOneResult<RecordType>>;
-// 
-//     getMany: <RecordType extends Record = Record>(
-//         resource: string,
-//         params: GetManyParams,
-//         options?: UseDataProviderOptions
-//     ) => Promise<GetManyResult<RecordType>>;
-// 
-//     getManyReference: <RecordType extends Record = Record>(
-//         resource: string,
-//         params: GetManyReferenceParams,
-//         options?: UseDataProviderOptions
-//     ) => Promise<GetManyReferenceResult<RecordType>>;
-// 
-//     update: <RecordType extends Record = Record>(
-//         resource: string,
-//         params: UpdateParams,
-//         options?: UseDataProviderOptions
-//     ) => Promise<UpdateResult<RecordType>>;
-// 
-//     updateMany: (
-//         resource: string,
-//         params: UpdateManyParams,
-//         options?: UseDataProviderOptions
-//     ) => Promise<UpdateManyResult>;
-// 
-//     create: <RecordType extends Record = Record>(
-//         resource: string,
-//         params: CreateParams,
-//         options?: UseDataProviderOptions
-//     ) => Promise<CreateResult<RecordType>>;
-// 
-//     delete: <RecordType extends Record = Record>(
-//         resource: string,
-//         params: DeleteParams,
-//         options?: UseDataProviderOptions
-//     ) => Promise<DeleteResult<RecordType>>;
-// 
-//     deleteMany: (
-//         resource: string,
-//         params: DeleteManyParams,
-//         options?: UseDataProviderOptions
-//     ) => Promise<DeleteManyResult>;
-// 
-//     [key: string]: any;
-// };
-// 
-// export type MutationMode = 'pessimistic' | 'optimistic' | 'undoable';
-// export type OnSuccess = (response?: any) => void;
-// export type OnFailure = (error?: any) => void;
-// 
-// export interface UseDataProviderOptions {
-//     action?: string;
-//     fetch?: string;
-//     meta?: object;
-//     // @deprecated use mode: 'undoable' instead
-//     undoable?: boolean;
-//     mutationMode?: MutationMode;
-//     onSuccess?: OnSuccess;
-//     onFailure?: OnFailure;
-//     enabled?: boolean;
-// }
-// 
+export type DataProviderProxy = {
+    getList: <RecordType extends Record = Record>(
+        resource: string,
+        params: GetListParams,
+        options?: UseDataProviderOptions
+    ) => Promise<GetListResult<RecordType>>;
+
+    getOne: <RecordType extends Record = Record>(
+        resource: string,
+        params: GetOneParams,
+        options?: UseDataProviderOptions
+    ) => Promise<GetOneResult<RecordType>>;
+
+    getMany: <RecordType extends Record = Record>(
+        resource: string,
+        params: GetManyParams,
+        options?: UseDataProviderOptions
+    ) => Promise<GetManyResult<RecordType>>;
+
+    getManyReference: <RecordType extends Record = Record>(
+        resource: string,
+        params: GetManyReferenceParams,
+        options?: UseDataProviderOptions
+    ) => Promise<GetManyReferenceResult<RecordType>>;
+
+    update: <RecordType extends Record = Record>(
+        resource: string,
+        params: UpdateParams,
+        options?: UseDataProviderOptions
+    ) => Promise<UpdateResult<RecordType>>;
+
+    updateMany: (
+        resource: string,
+        params: UpdateManyParams,
+        options?: UseDataProviderOptions
+    ) => Promise<UpdateManyResult>;
+
+    create: <RecordType extends Record = Record>(
+        resource: string,
+        params: CreateParams,
+        options?: UseDataProviderOptions
+    ) => Promise<CreateResult<RecordType>>;
+
+    delete: <RecordType extends Record = Record>(
+        resource: string,
+        params: DeleteParams,
+        options?: UseDataProviderOptions
+    ) => Promise<DeleteResult<RecordType>>;
+
+    deleteMany: (
+        resource: string,
+        params: DeleteManyParams,
+        options?: UseDataProviderOptions
+    ) => Promise<DeleteManyResult>;
+
+    [key: string]: any;
+};
+
+export type MutationMode = 'pessimistic' | 'optimistic' | 'undoable';
+export type OnSuccess = (response?: any) => void;
+export type OnFailure = (error?: any) => void;
+
+export interface UseDataProviderOptions {
+    action?: string;
+    fetch?: string;
+    meta?: object;
+    // @deprecated use mode: 'undoable' instead
+    undoable?: boolean;
+    mutationMode?: MutationMode;
+    onSuccess?: OnSuccess;
+    onFailure?: OnFailure;
+    enabled?: boolean;
+}
+
 // export type LegacyDataProvider = (
 //     type: string,
 //     resource: string,
@@ -316,60 +316,60 @@ export interface DeleteManyResult {
 //     readonly icon?: any;
 // }
 // 
-// /**
-//  * Redux state type
-//  */
-// export interface ReduxState {
-//     admin: {
-//         ui: {
-//             automaticRefreshEnabled: boolean;
-//             optimistic: boolean;
-//             sidebarOpen: boolean;
-//             viewVersion: number;
-//         };
-//         resources: {
-//             [name: string]: {
-//                 props: ResourceDefinition;
-//                 data: {
-//                     [key: string]: Record;
-//                     [key: number]: Record;
-//                 };
-//                 list: {
-//                     cachedRequests?: {
-//                         ids: Identifier[];
-//                         total: number;
-//                         validity: Date;
-//                     };
-//                     expanded: Identifier[];
-//                     ids: Identifier[];
-//                     loadedOnce: boolean;
-//                     params: any;
-//                     selectedIds: Identifier[];
-//                     total: number;
-//                 };
-//                 validity: {
-//                     [key: string]: Date;
-//                     [key: number]: Date;
-//                 };
-//             };
-//         };
-//         references: {
-//             oneToMany: {
-//                 [relatedTo: string]: { ids: Identifier[]; total: number };
-//             };
-//         };
-//         loading: number;
-//         customQueries: {
-//             [key: string]: any;
-//         };
-//     };
-//     router: {
-//         location: Location;
-//     };
-// 
-//     // leave space for custom reducers
-//     [key: string]: any;
-// }
+/**
+ * Redux state type
+ */
+export interface ReduxState {
+  admin: {
+    ui: {
+      automaticRefreshEnabled: boolean;
+      optimistic: boolean;
+      sidebarOpen: boolean;
+      viewVersion: number;
+    };
+//    resources: {
+//      [name: string]: {
+//        props: ResourceDefinition;
+//        data: {
+//          [key: string]: Record;
+//          [key: number]: Record;
+//        };
+//        list: {
+//          cachedRequests?: {
+//            ids: Identifier[];
+//            total: number;
+//            validity: Date;
+//          };
+//          expanded: Identifier[];
+//          ids: Identifier[];
+//          loadedOnce: boolean;
+//          params: any;
+//          selectedIds: Identifier[];
+//          total: number;
+//        };
+//        validity: {
+//          [key: string]: Date;
+//          [key: number]: Date;
+//        };
+//      };
+//    };
+//    references: {
+//      oneToMany: {
+//        [relatedTo: string]: { ids: Identifier[]; total: number };
+//      };
+//    };
+//    loading: number;
+//    customQueries: {
+//      [key: string]: any;
+//    };
+//  };
+//  router: {
+//    location: Location;
+//  };
+
+  // leave space for custom reducers
+  [key: string]: any;
+}
 
 export type InitialState = object | (() => object);
 
