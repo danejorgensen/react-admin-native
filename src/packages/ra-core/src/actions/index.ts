@@ -1,5 +1,5 @@
 /// export * from './accumulateActions';
-/// export * from './authActions';
+export * from './authActions';
 export * from './clearActions';
 /// export * from './dataActions';
 export * from './fetchActions';
@@ -8,5 +8,5 @@ export * from './fetchActions';
 /// export * from './localeActions';
 export * from './notificationActions';
 /// export * from './resourcesActions';
-/// export * from './uiActions';
+export * from './uiActions';
 export * from './undoActions';

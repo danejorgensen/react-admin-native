@@ -6,7 +6,7 @@ import admin from './admin';
 ///     getReferenceResource as adminGetReferenceResource,
 ///     getPossibleReferenceValues as adminGetPossibleReferenceValues,
 /// } from './admin';
-/// export { getNotification } from './admin/notifications';
+export { getNotification } from './admin/notifications';
 
 interface CustomReducers {
     [key: string]: Reducer;
