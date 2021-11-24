@@ -1,7 +1,7 @@
 import adminSaga from './admin';
-/// import authSaga from './auth';
+import authSaga from './auth';
 /// import callbackSaga, { CallbackSideEffect } from './callback';
-/// import fetchSaga from './fetch';
+import fetchSaga from './fetch';
 import notificationSaga, { NotificationSideEffect } from './notification';
 /// import redirectionSaga, { RedirectionSideEffect } from './redirection';
 /// import accumulateSaga from './accumulate';
@@ -21,9 +21,9 @@ export type {
 
 export {
   adminSaga,
-///     authSaga,
+  authSaga,
 ///     callbackSaga,
-///     fetchSaga,
+  fetchSaga,
   notificationSaga,
 ///     redirectionSaga,
 ///     accumulateSaga,

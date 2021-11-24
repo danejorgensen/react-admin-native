@@ -12,7 +12,7 @@ import {
 } from '../types';
 import createAppReducer from '../reducer';
 import { adminSaga } from '../sideEffect';
-///import { CLEAR_STATE } from '../actions/clearActions';
+import { CLEAR_STATE } from '../actions/clearActions';
 
 ///interface Window {
 ///    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: (traceOptions: object) => Function;
@@ -30,41 +30,42 @@ interface Params {
 }
 
 export default ({
-///    dataProvider,
+  dataProvider,
 ///    history,
-    customReducers = {},
-///    authProvider = null,
-    customSagas = [],
-    initialState,
+  customReducers = {},
+  authProvider = null,
+  customSagas = [],
+  initialState,
 }: Params) => {
     const appReducer = createAppReducer(customReducers);
 
-///    const resettableAppReducer = (state, action) =>
-///        appReducer(
-///            action.type !== CLEAR_STATE
-///                ? state
-///                : // Erase data from the store but keep location, notifications, ui prefs, etc.
-///                  // This allows e.g. to display a notification on logout
-///                  {
-///                      ...state,
-///                      admin: {
-///                          ...state.admin,
-///                          loading: 0,
-///                          resources: {},
-///                          customQueries: {},
-///                          references: { oneToMany: {}, possibleValues: {} },
-///                      },
-///                  },
-///            action
-///        );
+    const resettableAppReducer = (state: any, action: any) =>
+        appReducer(
+            action.type !== CLEAR_STATE
+                ? state
+                : // Erase data from the store but keep location, notifications, ui prefs, etc.
+                  // This allows e.g. to display a notification on logout
+                  {
+                      ...state,
+                      admin: {
+                          ...state.admin,
+                          loading: 0,
+                          resources: {},
+                          customQueries: {},
+                          references: { oneToMany: {}, possibleValues: {} },
+                      },
+                  },
+            action
+        );
     const saga = function* rootSaga() {
         yield all(
-            [adminSaga(), ...customSagas].map(fork)
+            [adminSaga(dataProvider, authProvider), ...customSagas].map(fork)
         );
     };
     const sagaMiddleware = createSagaMiddleware();
 ///    const typedWindow = typeof window !== 'undefined' && (window as Window);
-/// 
+
+    const composeEnhancers = compose;
 ///    const composeEnhancers =
 ///        (process.env.NODE_ENV === 'development' &&
 ///            typeof typedWindow !== 'undefined' &&
@@ -76,10 +77,10 @@ export default ({
 ///        compose;
 
     const store = createStore(
-        appReducer,
+        resettableAppReducer,
         typeof initialState === 'function' ? initialState() : initialState,
-        compose(
-            applyMiddleware(sagaMiddleware)
+        composeEnhancers(
+            applyMiddleware(sagaMiddleware) /// routerMiddleware(history)
         )
     );
     sagaMiddleware.run(saga);

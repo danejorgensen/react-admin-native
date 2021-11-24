@@ -474,18 +474,18 @@ export type InitialState = object | (() => object);
 
 export interface AdminProps {
 ///     appLayout?: LayoutComponent;
-    authProvider: AuthProvider; /// | LegacyAuthProvider;
+  authProvider: AuthProvider; /// | LegacyAuthProvider;
 ///     catchAll?: CatchAllComponent;
-    children?: any; /// AdminChildren;
-///     customReducers?: object;
+  children?: any; /// AdminChildren;
+  customReducers?: object;
 ///     customRoutes?: CustomRoutes;
-///     customSagas?: any[];
+  customSagas?: any[];
 ///     dashboard?: DashboardComponent;
-    dataProvider: DataProvider; /// | LegacyDataProvider;
+  dataProvider: DataProvider; /// | LegacyDataProvider;
 ///     disableTelemetry?: boolean;
 ///     history?: History;
 ///     i18nProvider?: I18nProvider;
-///     initialState?: InitialState;
+  initialState?: InitialState;
 ///     layout?: LayoutComponent;
 ///     loading?: ComponentType;
 ///     locale?: string;

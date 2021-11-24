@@ -8,14 +8,16 @@ import { AdminProps } from '../types';
 const CoreAdmin = ({
   authProvider,
   children,
-///   customReducers,
+  customReducers,
 ///  customRoutes = [],
-///   customSagas,
+  customSagas,
   dataProvider
 }: AdminProps) => {
   return (
     <CoreAdminContext
       authProvider={authProvider}
+      customReducers={customReducers}
+      customSagas={customSagas}
       dataProvider={dataProvider}>
       {children}
     </CoreAdminContext>

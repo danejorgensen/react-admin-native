@@ -1,8 +1,8 @@
-/// import { DataProvider, AuthProvider } from '../types';
+import { DataProvider, AuthProvider } from '../types';
 import { all } from 'redux-saga/effects';
-/// import auth from './auth';
+import auth from './auth';
 /// import callback from './callback';
-/// import fetch from './fetch';
+import fetch from './fetch';
 /// import notification from './notification';
 /// import redirection from './redirection';
 /// import accumulate from './accumulate';
@@ -14,14 +14,16 @@ import { all } from 'redux-saga/effects';
  * @param {Function} authProvider An Authentication Provider object
  */
 export default (
-///   dataProvider: DataProvider,
-///   authProvider: AuthProvider | null
+  dataProvider: DataProvider,
+  // @ts-ignore
+  authProvider: AuthProvider | null
 ) =>
     function* admin() {
         yield all([
-///             auth(authProvider)(),
+          // @ts-ignore
+             auth(authProvider)(),
 ///             undo(),
-///             fetch(dataProvider)(),
+             fetch(dataProvider)(),
 ///             accumulate(),
 ///             redirection(),
 ///             refresh(),

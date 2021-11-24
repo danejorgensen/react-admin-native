@@ -12,9 +12,9 @@ export type { AdminContextProps };
 export {
     CoreAdmin,
     CoreAdminContext,
-///     CoreAdminRouter,
+///    CoreAdminRouter,
 ///    CoreAdminUI,
     createAdminStore,
-///     RoutesWithLayout,
-///     Resource,
+///    RoutesWithLayout,
+///    Resource,
 };
