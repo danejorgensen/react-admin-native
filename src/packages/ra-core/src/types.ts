@@ -306,15 +306,15 @@ export interface UseDataProviderOptions {
 //     params: any
 // ) => Promise<any>;
 // 
-// export interface ResourceDefinition {
-//     readonly name: string;
-//     readonly options?: any;
-//     readonly hasList?: boolean;
-//     readonly hasEdit?: boolean;
-//     readonly hasShow?: boolean;
-//     readonly hasCreate?: boolean;
-//     readonly icon?: any;
-// }
+export interface ResourceDefinition {
+    readonly name: string;
+    readonly options?: any;
+    readonly hasList?: boolean;
+    readonly hasEdit?: boolean;
+    readonly hasShow?: boolean;
+    readonly hasCreate?: boolean;
+    readonly icon?: any;
+}
 // 
 /**
  * Redux state type
@@ -327,42 +327,42 @@ export interface ReduxState {
       sidebarOpen: boolean;
       viewVersion: number;
     };
-//    resources: {
-//      [name: string]: {
-//        props: ResourceDefinition;
-//        data: {
-//          [key: string]: Record;
-//          [key: number]: Record;
-//        };
-//        list: {
-//          cachedRequests?: {
-//            ids: Identifier[];
-//            total: number;
-//            validity: Date;
-//          };
-//          expanded: Identifier[];
-//          ids: Identifier[];
-//          loadedOnce: boolean;
-//          params: any;
-//          selectedIds: Identifier[];
-//          total: number;
-//        };
-//        validity: {
-//          [key: string]: Date;
-//          [key: number]: Date;
-//        };
-//      };
-//    };
-//    references: {
-//      oneToMany: {
-//        [relatedTo: string]: { ids: Identifier[]; total: number };
-//      };
-//    };
-//    loading: number;
-//    customQueries: {
-//      [key: string]: any;
-//    };
-//  };
+    resources: {
+      [name: string]: {
+        props: ResourceDefinition;
+        data: {
+          [key: string]: Record;
+          [key: number]: Record;
+        };
+        list: {
+          cachedRequests?: {
+            ids: Identifier[];
+            total: number;
+            validity: Date;
+          };
+          expanded: Identifier[];
+          ids: Identifier[];
+          loadedOnce: boolean;
+          params: any;
+          selectedIds: Identifier[];
+          total: number;
+        };
+        validity: {
+          [key: string]: Date;
+          [key: number]: Date;
+        };
+      };
+    };
+    references: {
+      oneToMany: {
+        [relatedTo: string]: { ids: Identifier[]; total: number };
+      };
+    };
+    loading: number;
+    customQueries: {
+      [key: string]: any;
+    };
+  };
 //  router: {
 //    location: Location;
 //  };
@@ -377,10 +377,10 @@ export type InitialState = object | (() => object);
 //  * Misc types
 //  */
 // 
-// export type Dispatch<T> = T extends (...args: infer A) => any
-//     ? (...args: A) => void
-//     : never;
-// 
+export type Dispatch<T> = T extends (...args: infer A) => any
+    ? (...args: A) => void
+    : never;
+
 // export type ResourceElement = ReactElement<ResourceProps>;
 // export type RenderResourcesFunction = (
 //     permissions: any
@@ -422,55 +422,55 @@ export type InitialState = object | (() => object);
 //     loadingPrimary?: string;
 //     loadingSecondary?: string;
 // }>;
-// 
-// export interface ResourceComponentInjectedProps {
-//     basePath?: string;
-//     permissions?: any;
-//     resource?: string;
-//     options?: any;
-//     hasList?: boolean;
-//     hasEdit?: boolean;
-//     hasShow?: boolean;
-//     hasCreate?: boolean;
-// }
-// 
-// export interface ResourceComponentProps<
-//     Params extends { [K in keyof Params]?: string } = {},
-//     C extends StaticContext = StaticContext,
-//     S = LocationState
-// > extends Partial<RouteComponentProps<Params, C, S>>,
-//         ResourceComponentInjectedProps {}
-// 
-// // deprecated name, use ResourceComponentProps instead
-// export type ReactAdminComponentProps = ResourceComponentProps;
-// 
-// export interface ResourceComponentPropsWithId<
-//     Params extends { id?: string } = {},
-//     C extends StaticContext = StaticContext,
-//     S = LocationState
-// > extends Partial<RouteComponentProps<Params, C, S>>,
-//         ResourceComponentInjectedProps {
-//     id?: string;
-// }
-// 
-// // deprecated name, use ResourceComponentPropsWithId instead
-// export type ReactAdminComponentPropsWithId = ResourceComponentPropsWithId;
-// 
-// export type ResourceMatch = Match<{
-//     id?: string;
-// }>;
-// 
-// export interface ResourceProps {
-//     intent?: 'route' | 'registration';
-//     match?: ResourceMatch;
-//     name: string;
-//     list?: ComponentType<ResourceComponentProps>;
-//     create?: ComponentType<ResourceComponentProps>;
-//     edit?: ComponentType<ResourceComponentPropsWithId>;
-//     show?: ComponentType<ResourceComponentPropsWithId>;
-//     icon?: ComponentType<any>;
-//     options?: object;
-// }
+
+export interface ResourceComponentInjectedProps {
+    basePath?: string;
+    permissions?: any;
+    resource?: string;
+    options?: any;
+    hasList?: boolean;
+    hasEdit?: boolean;
+    hasShow?: boolean;
+    hasCreate?: boolean;
+}
+
+/// export interface ResourceComponentProps<
+///     Params extends { [K in keyof Params]?: string } = {},
+///     C extends StaticContext = StaticContext,
+///     S = LocationState
+/// > extends Partial<RouteComponentProps<Params, C, S>>,
+///         ResourceComponentInjectedProps {}
+
+/// // deprecated name, use ResourceComponentProps instead
+/// export type ReactAdminComponentProps = ResourceComponentProps;
+
+/// export interface ResourceComponentPropsWithId<
+///     Params extends { id?: string } = {},
+///     C extends StaticContext = StaticContext,
+///     S = LocationState
+/// > extends Partial<RouteComponentProps<Params, C, S>>,
+///         ResourceComponentInjectedProps {
+///     id?: string;
+/// }
+
+/// // deprecated name, use ResourceComponentPropsWithId instead
+/// export type ReactAdminComponentPropsWithId = ResourceComponentPropsWithId;
+
+export type ResourceMatch = Match<{
+    id?: string;
+}>;
+
+export interface ResourceProps {
+    intent?: 'route' | 'registration';
+    match?: ResourceMatch;
+    name: string;
+    list?: any; ///ComponentType<ResourceComponentProps>;
+    create?: any; ///ComponentType<ResourceComponentProps>;
+    edit?: any; ///ComponentType<ResourceComponentPropsWithId>;
+    show?: any; ///ComponentType<ResourceComponentPropsWithId>;
+    icon?: ComponentType<any>;
+    options?: object;
+}
 
 export interface AdminProps {
 ///     appLayout?: LayoutComponent;

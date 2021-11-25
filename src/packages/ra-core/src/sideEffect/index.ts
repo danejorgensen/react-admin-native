@@ -1,6 +1,6 @@
 import adminSaga from './admin';
 import authSaga from './auth';
-/// import callbackSaga, { CallbackSideEffect } from './callback';
+import callbackSaga, { CallbackSideEffect } from './callback';
 import fetchSaga from './fetch';
 import notificationSaga, { NotificationSideEffect } from './notification';
 /// import redirectionSaga, { RedirectionSideEffect } from './redirection';
@@ -13,7 +13,7 @@ import useNotify from './useNotify';
 /// import useUnselectAll from './useUnselectAll';
 /// 
 export type {
-///     CallbackSideEffect,
+  CallbackSideEffect,
   NotificationSideEffect,
 ///     RedirectionSideEffect,
 ///     RefreshSideEffect,
@@ -22,7 +22,7 @@ export type {
 export {
   adminSaga,
   authSaga,
-///     callbackSaga,
+  callbackSaga,
   fetchSaga,
   notificationSaga,
 ///     redirectionSaga,
