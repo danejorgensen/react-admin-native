@@ -17,7 +17,7 @@ import {
     nameRelatedTo,
 } from '../reducer/admin/references/oneToMany';
 
-const defaultIds = [];
+const defaultIds: any[] = [];
 const defaultData = {};
 
 interface UseGetManyReferenceOptions {
@@ -122,8 +122,8 @@ const useGetManyReference = (
             ids == null
                 ? defaultData
                 : ids
-                      .map(id => allRecords[id])
-                      .reduce((acc, record) => {
+                      .map((id: any) => allRecords[id])
+                      .reduce((acc: any, record: any) => {
                           if (!record) return acc;
                           acc[record.id] = record;
                           return acc;

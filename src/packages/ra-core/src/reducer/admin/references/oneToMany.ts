@@ -2,7 +2,7 @@ import { Reducer } from 'redux';
 import {
     CRUD_GET_MANY_REFERENCE_SUCCESS,
     CrudGetManyReferenceSuccessAction,
-} from '../../../actions';
+} from '../../../actions/dataActions/crudGetManyReference';
 import { CrudDeleteSuccessAction } from '../../../actions/dataActions/crudDelete';
 import { Identifier, ReduxState } from '../../../types';
 import { DELETE, DELETE_MANY } from '../../../core/dataFetchActions';

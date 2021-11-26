@@ -23,7 +23,7 @@ interface UseGetMatchingOptions {
     [key: string]: any;
 }
 
-const referenceSource = (resource, source) => `${resource}@${source}`;
+const referenceSource = (resource: any, source: any) => `${resource}@${source}`;
 
 /**
  * Call the dataProvider.getList() method return the resolved result
@@ -140,6 +140,7 @@ const useGetMatching = (
     return {
         data: possibleReferences,
         ids: possibleValues,
+        // @ts-ignore
         total,
         error,
         loading,

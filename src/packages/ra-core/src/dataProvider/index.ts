@@ -13,8 +13,8 @@ import useGetOne, { UseGetOneHookValue } from './useGetOne';
 import useGetList from './useGetList';
 import { useGetMainList } from './useGetMainList';
 import useGetMany from './useGetMany';
-/// import useGetManyReference from './useGetManyReference';
-/// import useGetMatching from './useGetMatching';
+import useGetManyReference from './useGetManyReference';
+import useGetMatching from './useGetMatching';
 import useUpdate from './useUpdate';
 import useUpdateMany from './useUpdateMany';
 import useCreate from './useCreate';
@@ -29,28 +29,28 @@ export * from './useQuery';
 export type { UseMutationValue, UseGetOneHookValue };
 
 export {
-    cacheDataProviderProxy,
+  cacheDataProviderProxy,
 ///     convertLegacyDataProvider,
-    DataProviderContext,
-    fetchUtils,
-    HttpError,
+  DataProviderContext,
+  fetchUtils,
+  HttpError,
 ///     Mutation,
 ///     Query,
-    undoableEventEmitter,
-    useDataProvider,
-    useMutation,
-    useGetOne,
-    useGetList,
-    useGetMainList,
-    useGetMany,
-///    useGetManyReference,
-///    useGetMatching,
-    useUpdate,
-    useUpdateMany,
-    useCreate,
-    useDelete,
-    useDeleteMany,
+  undoableEventEmitter,
+  useDataProvider,
+  useMutation,
+  useGetOne,
+  useGetList,
+  useGetMainList,
+  useGetMany,
+  useGetManyReference,
+  useGetMatching,
+  useUpdate,
+  useUpdateMany,
+  useCreate,
+  useDelete,
+  useDeleteMany,
 ///     useRefreshWhenVisible,
 ///     withDataProvider,
-    useIsAutomaticRefreshEnabled,
+  useIsAutomaticRefreshEnabled,
 };

@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from 'react';
-import ReactDOM from 'react-dom';
+/// import ReactDOM from 'react-dom';
 import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 import debounce from 'lodash/debounce';
@@ -228,7 +228,7 @@ const callQueries = debounce(() => {
             .getMany(resource, { ids: accumulatedIds }, DataProviderOptions)
             .then((response: any) =>
                 // Forces batching, see https://stackoverflow.com/questions/48563650/does-react-keep-the-order-for-state-updates/48610973#48610973
-                ReactDOM.unstable_batchedUpdates(() =>
+///                 ReactDOM.unstable_batchedUpdates(() =>
                     queries.forEach(({ ids, setState, onSuccess }: any) => {
                         setState((prevState: any) => ({
                             ...prevState,
@@ -244,15 +244,15 @@ const callQueries = debounce(() => {
                             onSuccess({ data: subData });
                         }
                     })
-                )
+///                 )
             )
             .catch(error =>
-                ReactDOM.unstable_batchedUpdates(() =>
+///                 ReactDOM.unstable_batchedUpdates(() =>
                     queries.forEach(({ setState, onFailure }) => {
                         setState({ error, loading: false, loaded: false });
                         onFailure && onFailure(error);
                     })
-                )
+///                 )
             );
         delete queriesToCall[resource];
     });
