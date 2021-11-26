@@ -22,14 +22,3 @@ const loadingReducer: Reducer<State> = (previousState = 0, { type }) => {
 };
 
 export default loadingReducer;
-
-/*
-const INITIAL_STATE = 0;
-
-export default (state = INITIAL_STATE, action: any) => {
-  switch(action.type) {
-    default:
-      return state;
-  }
-};
-*/

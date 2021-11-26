@@ -215,17 +215,17 @@ export interface DeleteManyResult {
     data?: Identifier[];
 }
 
-// export type DataProviderResult<RecordType = Record> =
-//     | CreateResult<RecordType>
-//     | DeleteResult<RecordType>
-//     | DeleteManyResult
-//     | GetListResult<RecordType>
-//     | GetManyResult<RecordType>
-//     | GetManyReferenceResult<RecordType>
-//     | GetOneResult<RecordType>
-//     | UpdateResult<RecordType>
-//     | UpdateManyResult;
-// 
+export type DataProviderResult<RecordType = Record> =
+    | CreateResult<RecordType>
+    | DeleteResult<RecordType>
+    | DeleteManyResult
+    | GetListResult<RecordType>
+    | GetManyResult<RecordType>
+    | GetManyReferenceResult<RecordType>
+    | GetOneResult<RecordType>
+    | UpdateResult<RecordType>
+    | UpdateManyResult;
+
 export type DataProviderProxy = {
     getList: <RecordType extends Record = Record>(
         resource: string,
