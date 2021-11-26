@@ -1,5 +1,5 @@
 import { Record, PaginationPayload, SortPayload } from '../../types';
-import { GET_LIST } from '../../core';
+import { GET_LIST } from '../../core/dataFetchActions';
 import { FETCH_END, FETCH_ERROR } from '../fetchActions';
 import { NotificationSideEffect } from '../../sideEffect';
 

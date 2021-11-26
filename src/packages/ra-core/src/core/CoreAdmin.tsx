@@ -1,5 +1,5 @@
 import * as React from 'react';
-/// import { FunctionComponent, ComponentType } from 'react';
+/// import { ComponentType } from 'react';
 
 import CoreAdminContext from './CoreAdminContext';
 /// import CoreAdminUI from './CoreAdminUI';

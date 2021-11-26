@@ -8,7 +8,7 @@ import {
     UPDATE_MANY,
     DELETE,
     DELETE_MANY,
-} from '../core';
+} from '../core/dataFetchActions';
 
 /**
  * Get a fetch type for a data provider verb.

@@ -14,7 +14,7 @@ import {
     fetchActionsWithArrayOfRecordsResponse,
     fetchActionsWithTotalResponse,
     sanitizeFetchType,
-} from '../core';
+} from '../core/dataFetchActions';
 import { DeclarativeSideEffect } from '../dataProvider/useDeclarativeSideEffects';
 
 function validateResponseFormat(

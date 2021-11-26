@@ -7,7 +7,7 @@ import {
     CRUD_CREATE_SUCCESS,
     CrudCreateSuccessAction,
 } from '../../../../actions';
-import { DELETE, DELETE_MANY } from '../../../../core';
+import { DELETE, DELETE_MANY } from '../../../../core/dataFetchActions';
 import { Identifier } from '../../../../types';
 
 type IdentifierArray = Identifier[];

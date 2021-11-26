@@ -10,7 +10,7 @@ import {
     GET_ONE,
     UPDATE,
     UPDATE_MANY,
-} from '../../../core';
+} from '../../../core/dataFetchActions';
 import { Identifier } from '../../../types';
 
 interface ValidityRegistry {

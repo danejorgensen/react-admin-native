@@ -11,7 +11,7 @@ import {
     GET_ONE,
     UPDATE,
     UPDATE_MANY,
-} from '../../../core';
+} from '../../../core/dataFetchActions';
 import getFetchedAt from '../../../util/getFetchedAt';
 import { Record, Identifier } from '../../../types';
 

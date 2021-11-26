@@ -3,7 +3,7 @@ import {
     CRUD_GET_LIST_SUCCESS,
     CrudGetListSuccessAction,
 } from '../../../../actions/dataActions';
-import { DELETE, DELETE_MANY } from '../../../../core';
+import { DELETE, DELETE_MANY } from '../../../../core/dataFetchActions';
 
 type ActionTypes =
     | CrudGetListSuccessAction

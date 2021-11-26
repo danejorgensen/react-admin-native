@@ -1,6 +1,6 @@
 import { Reducer } from 'redux';
 import { FETCH_END, REFRESH_VIEW } from '../../../../actions';
-import { GET_LIST, CREATE } from '../../../../core';
+import { GET_LIST, CREATE } from '../../../../core/dataFetchActions';
 
 interface ValidityRegistry {
     [key: string]: Date;

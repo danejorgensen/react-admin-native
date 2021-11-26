@@ -4,7 +4,7 @@ import {
     PaginationPayload,
     SortPayload,
 } from '../../types';
-import { GET_MANY_REFERENCE } from '../../core';
+import { GET_MANY_REFERENCE } from '../../core/dataFetchActions';
 import { FETCH_END, FETCH_ERROR } from '../fetchActions';
 import { NotificationSideEffect } from '../../sideEffect';
 
