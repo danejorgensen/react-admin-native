@@ -5,9 +5,9 @@ import resources, {
 } from './resource';
 import loading from './loading';
 import notifications from './notifications';
-/// import references, {
-///     getPossibleReferenceValues as referencesGetPossibleReferenceValues,
-/// } from './references';
+import references, {
+    getPossibleReferenceValues as referencesGetPossibleReferenceValues,
+} from './references';
 import ui from './ui';
 import customQueries from './customQueries';
 
@@ -25,17 +25,17 @@ export default combineReducers({
     customQueries: customQueries || defaultReducer,
     loading: loading || defaultReducer,
     notifications: notifications || defaultReducer,
-///     references: references || defaultReducer,
+    references: references || defaultReducer,
     ui: ui || defaultReducer,
 });
 
-/// export const getPossibleReferenceValues = (state, props) =>
-///     referencesGetPossibleReferenceValues(state.references, props);
-/// 
+export const getPossibleReferenceValues = (state: any, props: any) =>
+    referencesGetPossibleReferenceValues(state.references, props);
+
 export const getResources = (state: any) => resourceGetResources(state.resources);
 
 export const getReferenceResource = (state: any, props: any) => {
     return resourceGetReferenceResource(state.resources, props);
 };
 
-/// export { getPossibleReferences } from './references';
+export { getPossibleReferences } from './references';
