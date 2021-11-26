@@ -1,6 +1,5 @@
 import { useCallback } from 'react';
-/// import merge from 'lodash/merge';
-import { merge } from 'lodash-es';
+import merge from 'lodash/merge';
 
 import { useSafeSetState } from '../util/hooks';
 import { MutationMode, OnSuccess, OnFailure } from '../types';

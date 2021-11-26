@@ -1,6 +1,5 @@
 import { useMemo, useRef } from 'react';
-/// import get from 'lodash/get';
-import { get } from 'lodash-es';
+import get from 'lodash/get';
 
 import {
     PaginationPayload,

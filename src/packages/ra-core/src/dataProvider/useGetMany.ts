@@ -2,16 +2,10 @@ import { useCallback, useMemo } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
-/// import debounce from 'lodash/debounce';
-/// import union from 'lodash/union';
-/// import isEqual from 'lodash/isEqual';
-/// import get from 'lodash/get';
-import {
-  debounce,
-  get,
-  isEqual,
-  union
-} from 'lodash-es';
+import debounce from 'lodash/debounce';
+import union from 'lodash/union';
+import isEqual from 'lodash/isEqual';
+import get from 'lodash/get';
 
 import { CRUD_GET_MANY } from '../actions/dataActions/crudGetMany';
 import { Identifier, Record, ReduxState, DataProviderProxy } from '../types';

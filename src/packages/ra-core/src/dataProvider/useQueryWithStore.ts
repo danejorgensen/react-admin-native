@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { isEqual } from 'lodash-es';
+import isEqual from 'lodash/isEqual';
 
 import useDataProvider from './useDataProvider';
 import useVersion from '../controller/useVersion';

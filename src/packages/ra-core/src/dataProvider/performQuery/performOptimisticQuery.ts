@@ -9,7 +9,7 @@ import {
     FETCH_ERROR,
     FETCH_START,
 } from '../../actions/fetchActions';
-import { replayStackedCalls } from './stackedCalls';
+/// import { replayStackedCalls } from './stackedCalls';
 import { QueryFunctionParams } from './QueryFunctionParams';
 
 /**
@@ -82,7 +82,7 @@ export const performOptimisticQuery = ({
                         },
                     });
                     dispatch({ type: FETCH_END });
-                    replayStackedCalls();
+///                     replayStackedCalls();
                 })
                 .catch((error: any) => {
                     if (process.env.NODE_ENV !== 'production') {

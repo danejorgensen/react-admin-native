@@ -1,5 +1,5 @@
 import { Reducer } from 'redux';
-import { isEqual } from 'lodash-es';
+import isEqual from 'lodash/isEqual';
 import { FETCH_END } from '../../../actions';
 import {
     CREATE,

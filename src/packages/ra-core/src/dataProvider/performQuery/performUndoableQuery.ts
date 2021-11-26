@@ -12,7 +12,7 @@ import {
     FETCH_ERROR,
     FETCH_START,
 } from '../../actions/fetchActions';
-import { replayStackedCalls } from './stackedCalls';
+/// import { replayStackedCalls } from './stackedCalls';
 import { QueryFunctionParams } from './QueryFunctionParams';
 
 /**
@@ -113,7 +113,7 @@ export const performUndoableQuery = ({
                             }
                         );
                     }
-                    replayStackedCalls();
+///                     replayStackedCalls();
                 })
                 .catch((error: any) => {
                     if (window) {

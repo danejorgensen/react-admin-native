@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
-/// import get from 'lodash/get';
-import { get } from 'lodash-es';
+import get from 'lodash/get';
 
 import { CRUD_GET_MATCHING } from '../actions/dataActions/crudGetMatching';
 import {

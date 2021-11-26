@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
-/// import get from 'lodash/get';
-import { get } from 'lodash-es';
+import get from 'lodash/get';
 
 import { CRUD_GET_MANY_REFERENCE } from '../actions/dataActions/crudGetManyReference';
 import {

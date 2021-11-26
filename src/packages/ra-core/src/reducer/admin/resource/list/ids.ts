@@ -1,5 +1,5 @@
 import { Reducer } from 'redux';
-import { uniq } from 'lodash-es';
+import uniq from 'lodash/uniq';
 import {
     CRUD_GET_LIST_SUCCESS,
     CrudGetListSuccessAction,
