@@ -57,7 +57,7 @@ export type I18nProvider = {
 
 export interface UserIdentity {
     id: Identifier;
-    fullName?: string;
+    fullName?: string | null;
     avatar?: string;
     [key: string]: any;
 }

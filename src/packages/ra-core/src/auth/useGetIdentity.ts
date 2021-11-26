@@ -48,6 +48,7 @@ const useGetIdentity = () => {
         if (authProvider && typeof authProvider.getIdentity === 'function') {
             const callAuthProvider = async () => {
                 try {
+                    // @ts-ignore
                     const identity = await authProvider.getIdentity();
                     setState({
                         loading: false,

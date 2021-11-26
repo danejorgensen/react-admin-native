@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-import useAuthProvider, { defaultAuthParams } from './useAuthProvider';
+import useAuthProvider from './useAuthProvider'; /// , { defaultAuthParams }
 import useLogout from './useLogout';
 import useNotify from '../sideEffect/useNotify';
 
@@ -49,16 +49,17 @@ const useCheckAuth = (): CheckAuth => {
         (
             params: any = {},
             logoutOnFailure = true,
-            redirectTo = defaultAuthParams.loginUrl,
+            // @ts-ignore
+            redirectTo = '', /// defaultAuthParams.loginUrl,
             disableNotification = false
         ) =>
-            authProvider.checkAuth(params).catch(error => {
+            authProvider.checkAuth(params).catch((error: any) => {
                 if (logoutOnFailure) {
                     logout(
                         {},
-                        error && error.redirectTo
-                            ? error.redirectTo
-                            : redirectTo
+///                        error && error.redirectTo
+///                            ? error.redirectTo
+///                            : redirectTo
                     );
                     const shouldSkipNotify =
                         disableNotification ||
@@ -98,7 +99,7 @@ type CheckAuth = (
     disableNotification?: boolean
 ) => Promise<any>;
 
-const getErrorMessage = (error, defaultMessage) =>
+const getErrorMessage = (error: any, defaultMessage: any) =>
     typeof error === 'string'
         ? error
         : typeof error === 'undefined' || !error.message
