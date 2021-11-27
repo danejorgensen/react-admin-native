@@ -1,10 +1,10 @@
 import { useCallback } from 'react';
 /// import { useLocation, useHistory } from 'react-router-dom';
-/// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import useAuthProvider from './useAuthProvider';
 /// import useAuthProvider, { defaultAuthParams } from './useAuthProvider';
-/// import { resetNotification } from '../actions/notificationActions';
+import { resetNotification } from '../actions/notificationActions';
 
 /**
  * Get a callback for calling the authProvider.login() method
@@ -34,14 +34,14 @@ const useLogin = (): Login => {
 ///     const location = useLocation();
 ///     const locationState = location.state as any;
 ///     const history = useHistory();
-///     const dispatch = useDispatch();
+    const dispatch = useDispatch();
 ///     const nextPathName = locationState && locationState.nextPathname;
 ///     const nextSearch = locationState && locationState.nextSearch;
 
     const login = useCallback(
         (params: any = {}) =>
             authProvider.login(params).then(ret => {
-///                 dispatch(resetNotification());
+                dispatch(resetNotification());
 ///                 const redirectUrl = pathName
 ///                     ? pathName
 ///                     : nextPathName + nextSearch ||

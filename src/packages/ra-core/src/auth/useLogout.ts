@@ -1,9 +1,8 @@
 import { useCallback } from 'react';
-/// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import useAuthProvider from './useAuthProvider';
-/// import useAuthProvider, { defaultAuthParams } from './useAuthProvider';
-/// import { clearState } from '../actions/clearActions';
+import useAuthProvider from './useAuthProvider'; ///, { defaultAuthParams }
+import { clearState } from '../actions/clearActions';
 /// import { useHistory } from 'react-router-dom';
 /// import { LocationDescriptorObject } from 'history';
 
@@ -27,7 +26,7 @@ import useAuthProvider from './useAuthProvider';
  */
 const useLogout = (): Logout => {
     const authProvider = useAuthProvider();
-///     const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     /**
      * We need the current location to pass in the router state
@@ -50,7 +49,7 @@ const useLogout = (): Logout => {
 ///             redirectToCurrentLocationAfterLogin = true
         ) =>
             authProvider.logout(params).then(redirectToFromProvider => {
-///                 dispatch(clearState());
+                dispatch(clearState());
 ///                 if (redirectToFromProvider === false) {
 ///                     // do not redirect
 ///                     return;
