@@ -9,10 +9,10 @@ import {
 /// import { push, replace } from 'connected-react-router';
 
 import { AuthProvider } from '../types';
-/// import {
-///     showNotification,
-///     hideNotification,
-/// } from '../actions/notificationActions';
+import {
+  showNotification,
+  hideNotification,
+} from '../actions/notificationActions';
 import {
     USER_LOGIN,
     USER_LOGIN_LOADING,
@@ -45,12 +45,12 @@ export default (authProvider?: AuthProvider | null) => {
 
 /// const currentPathnameSelector = state => state.router.location;
 
-/// const getErrorMessage = (error, defaultMessage) =>
-///     typeof error === 'string'
-///         ? error
-///         : typeof error === 'undefined' || !error.message
-///         ? defaultMessage
-///         : error.message;
+const getErrorMessage = (error, defaultMessage) =>
+    typeof error === 'string'
+        ? error
+        : typeof error === 'undefined' || !error.message
+        ? defaultMessage
+        : error.message;
 
 export const handleLogin = (authProvider: AuthProvider) =>
     function* (action: any) {
@@ -71,8 +71,8 @@ export const handleLogin = (authProvider: AuthProvider) =>
                 error: e,
                 meta: { auth: true },
             });
-///             const errorMessage = getErrorMessage(e, 'ra.auth.sign_in_error');
-///             yield put(showNotification(errorMessage, 'warning'));
+            const errorMessage = getErrorMessage(e, 'ra.auth.sign_in_error');
+            yield put(showNotification(errorMessage, 'warning'));
         }
     };
 
@@ -90,14 +90,14 @@ export const handleCheck = (authProvider: AuthProvider) =>
 ///                     state: { nextPathname: meta.pathName },
 ///                 })
 ///             );
-///             // Clear the state before showing a notification as it would be dismissed immediately otherwise
-///             yield put(clearState());
+            // Clear the state before showing a notification as it would be dismissed immediately otherwise
+            yield put(clearState());
 
-///             const errorMessage = getErrorMessage(
-///                 error,
-///                 'ra.auth.auth_check_error'
-///             );
-///             yield put(showNotification(errorMessage, 'warning'));
+            const errorMessage = getErrorMessage(
+                error,
+                'ra.auth.auth_check_error'
+            );
+            yield put(showNotification(errorMessage, 'warning'));
         }
     };
 
@@ -130,9 +130,9 @@ export const handleFetchError = (authProvider: AuthProvider) =>
 ///             // Clear the state before showing a notification as it would be dismissed immediately otherwise
             yield put(clearState());
 
-///             yield put(hideNotification());
-///             yield put(
-///                 showNotification('ra.notification.logged_out', 'warning')
-///             );
+            yield put(hideNotification());
+            yield put(
+                showNotification('ra.notification.logged_out', 'warning')
+             );
         }
     };
