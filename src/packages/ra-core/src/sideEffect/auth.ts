@@ -45,7 +45,7 @@ export default (authProvider?: AuthProvider | null) => {
 
 /// const currentPathnameSelector = state => state.router.location;
 
-const getErrorMessage = (error, defaultMessage) =>
+const getErrorMessage = (error: any, defaultMessage: string) =>
     typeof error === 'string'
         ? error
         : typeof error === 'undefined' || !error.message
