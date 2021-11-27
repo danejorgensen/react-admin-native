@@ -83,6 +83,7 @@ export const handleCheck = (authProvider: AuthProvider) =>
             yield call([authProvider, 'checkAuth'], payload);
         } catch (error) {
 ///             const redirectTo = yield call([authProvider, 'logout'], undefined);
+            yield call([authProvider, 'logout'], undefined);
 ///             yield put(
 ///                 replace({
 ///                     pathname:
@@ -121,18 +122,19 @@ export const handleFetchError = (authProvider: AuthProvider) =>
         } catch (e) {
 ///             const nextPathname = yield select(currentPathnameSelector);
 ///             const redirectTo = yield call([authProvider, 'logout'], undefined);
+            yield call([authProvider, 'logout'], undefined);
 ///             yield put(
 ///                 push({
 ///                     pathname: redirectTo || '/login',
 ///                     state: { nextPathname },
 ///                 })
 ///             );
-///             // Clear the state before showing a notification as it would be dismissed immediately otherwise
+            // Clear the state before showing a notification as it would be dismissed immediately otherwise
             yield put(clearState());
 
             yield put(hideNotification());
             yield put(
                 showNotification('ra.notification.logged_out', 'warning')
-             );
+            );
         }
     };
