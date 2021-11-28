@@ -2,7 +2,7 @@ import useListController, {
     ListProps,
     ListControllerProps,
 } from './useListController';
-/// import { useTranslate } from '../i18n';
+import { useTranslate } from '../i18n';
 import { Translate } from '../types';
 
 interface ListControllerComponentProps extends ListControllerProps {
@@ -28,8 +28,8 @@ interface Props extends ListProps {
  */
 const ListController = ({ children, ...props }: Props) => {
     const controllerProps = useListController(props);
-///     const translate = useTranslate(); // injected for backwards compatibility
-    return children({ ...controllerProps }); /// translate, 
+    const translate = useTranslate(); // injected for backwards compatibility
+    return children({ ...controllerProps, translate });
 };
 
 export default ListController;

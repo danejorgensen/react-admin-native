@@ -1,9 +1,12 @@
+// @ts-ignore
 import { useCallback, useMemo, useEffect, useState, useRef } from 'react';
+// @ts-ignore
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
+// @ts-ignore
 import { parse, stringify } from 'query-string';
 import lodashDebounce from 'lodash/debounce';
 import pickBy from 'lodash/pickBy';
-import { useHistory, useLocation } from 'react-router-dom';
+/// import { useHistory, useLocation } from 'react-router-dom';
 
 import queryReducer, {
     SET_FILTER,
@@ -14,6 +17,7 @@ import queryReducer, {
     SET_SORT,
     SORT_ASC,
 } from '../reducer/admin/resource/list/queryReducer';
+// @ts-ignore
 import { changeListParams, ListParams } from '../actions/listActions';
 import { SortPayload, ReduxState, FilterPayload } from '../types';
 import removeEmpty from '../util/removeEmpty';
@@ -114,9 +118,9 @@ const useListParams = ({
     debounce = 500,
     syncWithLocation = false,
 }: ListParamsOptions): [Parameters, Modifiers] => {
-    const dispatch = useDispatch();
-    const location = useLocation();
-    const history = useHistory();
+///    const dispatch = useDispatch();
+///    const location = useLocation();
+///    const history = useHistory();
     const [localParams, setLocalParams] = useState(defaultParams);
     const params = useSelector(
         (reduxState: ReduxState) =>
@@ -128,7 +132,7 @@ const useListParams = ({
     const tempParams = useRef<ListParams>();
 
     const requestSignature = [
-        location.search,
+///        location.search,
         resource,
         syncWithLocation ? params : localParams,
         filterDefaultValues,
@@ -137,9 +141,10 @@ const useListParams = ({
         syncWithLocation,
     ];
 
-    const queryFromLocation = syncWithLocation
-        ? parseQueryFromLocation(location)
-        : {};
+///    const queryFromLocation = syncWithLocation
+///        ? parseQueryFromLocation(location)
+///        : {};
+    const queryFromLocation = {};
 
     const query = useMemo(
         () =>
@@ -157,11 +162,11 @@ const useListParams = ({
     // the categories products on the demo), we need to persist them in the
     // redux state as well so that we don't lose them after a redirection back
     // to the list
-    useEffect(() => {
-        if (Object.keys(queryFromLocation).length > 0) {
-            dispatch(changeListParams(resource, query));
-        }
-    }, [location.search]); // eslint-disable-line
+///    useEffect(() => {
+///        if (Object.keys(queryFromLocation).length > 0) {
+///            dispatch(changeListParams(resource, query));
+///        }
+///    }, [location.search]); // eslint-disable-line
 
     const changeParams = useCallback(action => {
         if (!tempParams.current) {
@@ -170,18 +175,19 @@ const useListParams = ({
             // schedule side effects for next tick
             setTimeout(() => {
                 if (syncWithLocation) {
-                    history.push({
-                        search: `?${stringify({
-                            ...tempParams.current,
-                            filter: JSON.stringify(tempParams.current.filter),
-                            displayedFilters: JSON.stringify(
-                                tempParams.current.displayedFilters
-                            ),
-                        })}`,
-                        state: { _scrollToTop: action.type === SET_PAGE },
-                    });
+///                    history.push({
+///                        search: `?${stringify({
+///                            ...tempParams.current,
+///                            filter: JSON.stringify(tempParams.current.filter),
+///                            displayedFilters: JSON.stringify(
+///                                tempParams.current.displayedFilters
+///                            ),
+///                        })}`,
+///                        state: { _scrollToTop: action.type === SET_PAGE },
+///                    });
                     // the useEffect above will apply the changes to the params in the redux state
                 } else {
+                  // @ts-ignore
                     setLocalParams(tempParams.current);
                 }
                 tempParams.current = undefined;
@@ -258,6 +264,7 @@ const useListParams = ({
 
     return [
         {
+          // @ts-ignore
             displayedFilters: displayedFilterValues,
             filterValues,
             requestSignature,
@@ -284,7 +291,7 @@ export const validQueryParams = [
     'displayedFilters',
 ];
 
-const parseObject = (query, field) => {
+const parseObject = (query: any, field: any) => {
     if (query[field] && typeof query[field] === 'string') {
         try {
             query[field] = JSON.parse(query[field]);
@@ -294,10 +301,11 @@ const parseObject = (query, field) => {
     }
 };
 
-export const parseQueryFromLocation = ({ search }): Partial<ListParams> => {
+export const parseQueryFromLocation = ({ search }: any): Partial<ListParams> => {
     const query = pickBy(
         parse(search),
-        (v, k) => validQueryParams.indexOf(k) !== -1
+        // @ts-ignore
+        (v: any, k: any) => validQueryParams.indexOf(k) !== -1
     );
     parseObject(query, 'filter');
     parseObject(query, 'displayedFilters');
@@ -336,10 +344,15 @@ export const hasCustomParams = (params: ListParams) => {
  *   - the props passed to the List component (including the filter defaultValues)
  */
 export const getQuery = ({
+    // @ts-ignore
     queryFromLocation,
+    // @ts-ignore
     params,
+    // @ts-ignore
     filterDefaultValues,
+    // @ts-ignore
     sort,
+    // @ts-ignore
     perPage,
 }) => {
     const query: Partial<ListParams> =
@@ -376,6 +389,7 @@ export const getNumberOrDefault = (
             ? parseInt(possibleNumber, 10)
             : possibleNumber;
 
+    // @ts-ignore
     return isNaN(parsedNumber) ? defaultValue : parsedNumber;
 };
 

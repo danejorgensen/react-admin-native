@@ -3,7 +3,7 @@ import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { setListSelectedIds, toggleListItem } from '../actions/listActions';
 import { Identifier, ReduxState } from '../types';
 
-const defaultRecords = [];
+const defaultRecords: any[] = [];
 
 /**
  * Get the list of selected items for a resource, and callbacks to change the selection

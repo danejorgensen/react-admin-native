@@ -32,7 +32,7 @@ const MyHelloButton = ({ translate }) => (
 );`
     );
 
-    const TranslatedComponent = props => {
+    const TranslatedComponent = (props: any) => {
         const translate = useTranslate();
         const locale = useLocale();
 

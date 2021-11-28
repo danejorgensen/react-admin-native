@@ -34,6 +34,7 @@ const useSetLocale = (): SetLocale => {
     const { setLocale, i18nProvider } = useContext(TranslationContext);
     const { startLoading, stopLoading } = useUpdateLoading();
     const notify = useNotify();
+    // @ts-ignore
     return useCallback(
         (newLocale: string) =>
             new Promise(resolve => {

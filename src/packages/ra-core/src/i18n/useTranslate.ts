@@ -33,6 +33,6 @@ const useTranslate = (): Translate => {
     return i18nProvider ? translate : identity;
 };
 
-const identity = key => key;
+const identity = (key: any) => key;
 
 export default useTranslate;

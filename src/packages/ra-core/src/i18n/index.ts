@@ -1,9 +1,9 @@
 import translate from './translate';
-import { TranslationContext } from './TranslationContext';
+/// import { TranslationContext } from './TranslationContext';
 import TranslationProvider, {
     TranslationProviderProps,
 } from './TranslationProvider';
-import TestTranslationProvider from './TestTranslationProvider';
+/// import TestTranslationProvider from './TestTranslationProvider';
 import useLocale from './useLocale';
 import useSetLocale from './useSetLocale';
 import useTranslate from './useTranslate';
@@ -14,9 +14,9 @@ const withTranslate = translate;
 export {
     translate, // deprecated
     withTranslate, // deprecated
-    TranslationContext,
+///    TranslationContext,
     TranslationProvider,
-    TestTranslationProvider,
+///     TestTranslationProvider,
     useLocale,
     useSetLocale,
     useTranslate,

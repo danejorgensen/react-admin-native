@@ -1,14 +1,14 @@
 /// import escapePath from './escapePath';
 /// import FieldTitle, { FieldTitleProps } from './FieldTitle';
 import getFetchedAt from './getFetchedAt';
-/// import getFieldLabelTranslationArgs from './getFieldLabelTranslationArgs';
+import getFieldLabelTranslationArgs from './getFieldLabelTranslationArgs';
 /// import ComponentPropType from './ComponentPropType';
 /// import linkToRecord from './linkToRecord';
-/// import removeEmpty from './removeEmpty';
-/// import removeKey from './removeKey';
+import removeEmpty from './removeEmpty';
+import removeKey from './removeKey';
 /// import Ready from './Ready';
 /// import resolveRedirectTo from './resolveRedirectTo';
-/// import warning from './warning';
+import warning from './warning';
 /// import useWhyDidYouUpdate from './useWhyDidYouUpdate';
 import { useSafeSetState, useTimeout } from './hooks';
 /// import { getMutationMode } from './getMutationMode';
@@ -18,18 +18,18 @@ import { useSafeSetState, useTimeout } from './hooks';
 export {
 ///     escapePath,
 ///     FieldTitle,
-    getFetchedAt,
-///     getFieldLabelTranslationArgs,
+  getFetchedAt,
+  getFieldLabelTranslationArgs,
 ///     ComponentPropType,
 ///     linkToRecord,
 ///     Ready,
-///     removeEmpty,
-///     removeKey,
+  removeEmpty,
+  removeKey,
 ///     resolveRedirectTo,
-///     warning,
+  warning,
 ///     useWhyDidYouUpdate,
-    useSafeSetState,
-    useTimeout,
+  useSafeSetState,
+  useTimeout,
 ///     getMutationMode,
 };
 

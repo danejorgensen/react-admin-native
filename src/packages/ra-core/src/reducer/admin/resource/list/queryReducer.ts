@@ -16,7 +16,7 @@ export const SET_FILTER = 'SET_FILTER';
 export const SHOW_FILTER = 'SHOW_FILTER';
 export const HIDE_FILTER = 'HIDE_FILTER';
 
-const oppositeOrder = direction =>
+const oppositeOrder = (direction: any) =>
     direction === SORT_DESC ? SORT_ASC : SORT_DESC;
 
 type ActionTypes =
@@ -51,15 +51,18 @@ type ActionTypes =
 /**
  * This reducer is for the react-router query string, NOT for redux.
  */
+// @ts-ignore
 const queryReducer: Reducer<ListParams> = (
     previousState,
     action: ActionTypes
 ) => {
     switch (action.type) {
         case SET_SORT:
+            // @ts-ignore
             if (action.payload.sort === previousState.sort) {
                 return {
                     ...previousState,
+                    // @ts-ignore
                     order: oppositeOrder(previousState.order),
                     page: 1,
                 };
@@ -85,13 +88,16 @@ const queryReducer: Reducer<ListParams> = (
                 filter: action.payload.filter,
                 displayedFilters: action.payload.displayedFilters
                     ? action.payload.displayedFilters
+                    // @ts-ignore
                     : previousState.displayedFilters,
             };
         }
 
         case SHOW_FILTER: {
             if (
+                // @ts-ignore
                 previousState.displayedFilters &&
+                // @ts-ignore
                 previousState.displayedFilters[action.payload.filterName]
             ) {
                 // the filter is already shown
@@ -102,14 +108,17 @@ const queryReducer: Reducer<ListParams> = (
                 filter:
                     typeof action.payload.defaultValue !== 'undefined'
                         ? set(
+                              // @ts-ignore
                               previousState.filter,
                               action.payload.filterName,
                               action.payload.defaultValue
                           )
+                        // @ts-ignore
                         : previousState.filter,
                 // we don't use lodash.set() for displayed filters
                 // to avoid problems with compound filter names (e.g. 'author.name')
                 displayedFilters: {
+                    // @ts-ignore
                     ...previousState.displayedFilters,
                     [action.payload.filterName]: true,
                 },
@@ -120,19 +129,23 @@ const queryReducer: Reducer<ListParams> = (
             return {
                 ...previousState,
                 filter: removeEmpty(
+                  // @ts-ignore
                     removeKey(previousState.filter, action.payload)
                 ),
                 // we don't use lodash.set() for displayed filters
                 // to avoid problems with compound filter names (e.g. 'author.name')
+                // @ts-ignore
                 displayedFilters: previousState.displayedFilters
+                    // @ts-ignore
                     ? Object.keys(previousState.displayedFilters).reduce(
-                          (filters, filter) => {
+                          (filters: any, filter: any) => {
                               return filter !== action.payload
                                   ? { ...filters, [filter]: true }
                                   : filters;
                           },
                           {}
                       )
+                    // @ts-ignore
                     : previousState.displayedFilters,
             };
         }

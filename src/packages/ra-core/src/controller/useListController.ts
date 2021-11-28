@@ -1,5 +1,5 @@
 import { isValidElement, ReactElement, useEffect, useMemo } from 'react';
-import { Location } from 'history';
+/// import { Location } from 'history';
 
 import { useCheckMinimumRequiredProps } from './checkMinimumRequiredProps';
 import useListParams from './useListParams';
@@ -10,14 +10,14 @@ import { useGetMainList } from '../dataProvider/useGetMainList';
 import { Refetch } from '../dataProvider/useQueryWithStore';
 import { SORT_ASC } from '../reducer/admin/resource/list/queryReducer';
 import { CRUD_GET_LIST } from '../actions';
-import defaultExporter from '../export/defaultExporter';
+/// import defaultExporter from '../export/defaultExporter';
 import {
     FilterPayload,
     SortPayload,
     RecordMap,
     Identifier,
     Record,
-    Exporter,
+///    Exporter,
 } from '../types';
 import { useResourceContext, useGetResourceLabel } from '../core';
 
@@ -28,7 +28,7 @@ export interface ListProps {
     filterDefaultValues?: object;
     perPage?: number;
     sort?: SortPayload;
-    exporter?: Exporter | false;
+///    exporter?: Exporter | false;
     // the props managed by react-admin
     basePath?: string;
     debounce?: number;
@@ -36,7 +36,7 @@ export interface ListProps {
     hasEdit?: boolean;
     hasList?: boolean;
     hasShow?: boolean;
-    location?: Location;
+    location?: any; /// Location;
     path?: string;
     resource?: string;
     // Whether to synchronize the list parameters with the current location (URL search parameters)
@@ -57,7 +57,7 @@ export interface ListControllerProps<RecordType extends Record = Record> {
     defaultTitle?: string;
     displayedFilters: any;
     error?: any;
-    exporter?: Exporter | false;
+///    exporter?: Exporter | false;
     filter?: FilterPayload;
     filterValues: any;
     hasCreate?: boolean;
@@ -109,7 +109,7 @@ const useListController = <RecordType extends Record = Record>(
 
     const {
         basePath,
-        exporter = defaultExporter,
+///         exporter = defaultExporter,
         filterDefaultValues,
         hasCreate,
         sort = defaultSort,
@@ -167,7 +167,7 @@ const useListController = <RecordType extends Record = Record>(
         { ...query.filter, ...filter },
         {
             action: CRUD_GET_LIST,
-            onFailure: error =>
+            onFailure: (error: any) =>
                 notify(
                     typeof error === 'string'
                         ? error
@@ -185,11 +185,13 @@ const useListController = <RecordType extends Record = Record>(
         }
     );
 
+    // @ts-ignore
     const totalPages = Math.ceil(total / query.perPage) || 1;
 
     useEffect(() => {
         if (
             query.page <= 0 ||
+            // @ts-ignore
             (!loading && query.page > 1 && ids.length === 0)
         ) {
             // Query for a page that doesn't exist, set page to 1
@@ -215,18 +217,22 @@ const useListController = <RecordType extends Record = Record>(
     });
 
     return {
+        // @ts-ignore
         basePath,
         currentSort,
+        // @ts-ignore
         data,
         defaultTitle,
         displayedFilters: query.displayedFilters,
         error,
-        exporter,
+///         exporter,
         filter,
         filterValues: query.filterValues,
         hasCreate,
         hideFilter: queryModifiers.hideFilter,
+        // @ts-ignore
         ids,
+        // @ts-ignore
         loaded: loaded || ids.length > 0,
         loading,
         onSelect: selectionModifiers.select,
@@ -242,6 +248,7 @@ const useListController = <RecordType extends Record = Record>(
         setPerPage: queryModifiers.setPerPage,
         setSort: queryModifiers.setSort,
         showFilter: queryModifiers.showFilter,
+        // @ts-ignore
         total: total,
     };
 };
@@ -253,7 +260,7 @@ export const injectedProps = [
     'defaultTitle',
     'displayedFilters',
     'error',
-    'exporter',
+///     'exporter',
     'filterValues',
     'hasCreate',
     'hideFilter',
@@ -284,17 +291,17 @@ export const injectedProps = [
  * to be passed to the List children need
  * This is an implementation of pick()
  */
-export const getListControllerProps = props =>
-    injectedProps.reduce((acc, key) => ({ ...acc, [key]: props[key] }), {});
+export const getListControllerProps = (props: any) =>
+    injectedProps.reduce((acc: any, key: any) => ({ ...acc, [key]: props[key] }), {});
 
 /**
  * Select the props not injected by the useListController hook
  * to be used inside the List children to sanitize props injected by List
  * This is an implementation of omit()
  */
-export const sanitizeListRestProps = props =>
+export const sanitizeListRestProps = (props: any) =>
     Object.keys(props)
-        .filter(propName => !injectedProps.includes(propName))
-        .reduce((acc, key) => ({ ...acc, [key]: props[key] }), {});
+        .filter((propName: string) => !injectedProps.includes(propName))
+        .reduce((acc: any, key: any) => ({ ...acc, [key]: props[key] }), {});
 
 export default useListController;

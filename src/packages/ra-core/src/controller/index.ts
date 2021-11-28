@@ -1,4 +1,4 @@
-/// import ListController from './ListController';
+import ListController from './ListController';
 /// import ListContext from './ListContext';
 /// import ListFilterContext from './ListFilterContext';
 /// import ListPaginationContext from './ListPaginationContext';
@@ -36,7 +36,7 @@ export {
 ///     getListControllerProps,
 ///     sanitizeListRestProps,
 ///     ListBase,
-///     ListController,
+  ListController,
 ///     ListContext,
 ///     ListFilterContext,
 ///     ListPaginationContext,
