@@ -35,8 +35,11 @@ import { ListControllerProps } from './useListController';
  * };
  */
 const ListSortContext = createContext<ListSortContextValue>({
+    // @ts-ignore
     currentSort: null,
+    // @ts-ignore
     setSort: null,
+    // @ts-ignore
     resource: null,
 });
 

@@ -25,6 +25,7 @@ interface Action {
 const sortReducer = (state: SortPayload, action: Action): SortPayload => {
     switch (action.type) {
         case 'SET_SORT':
+            // @ts-ignore
             return action.payload.sort;
         case 'SET_SORT_FIELD': {
             const { field } = action.payload;
@@ -34,12 +35,14 @@ const sortReducer = (state: SortPayload, action: Action): SortPayload => {
                         ? SORT_DESC
                         : SORT_ASC
                     : SORT_ASC;
+            // @ts-ignore
             return { field, order };
         }
         case 'SET_SORT_ORDER': {
             const { order } = action.payload;
             return {
                 ...state,
+                // @ts-ignore
                 order,
             };
         }

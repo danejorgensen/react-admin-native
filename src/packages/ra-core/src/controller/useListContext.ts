@@ -145,7 +145,7 @@ const extractListContextProps = ({
     setSort,
     showFilter,
     total,
-}) => ({
+}: any) => ({
     basePath,
     currentSort,
     data,

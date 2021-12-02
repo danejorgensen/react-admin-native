@@ -55,30 +55,53 @@ import { ListControllerProps } from './useListController';
  * };
  */
 const ListContext = createContext<ListControllerProps>({
+    // @ts-ignore
     basePath: null,
+    // @ts-ignore
     currentSort: null,
+    // @ts-ignore
     data: null,
+    // @ts-ignore
     defaultTitle: null,
     displayedFilters: null,
     filterValues: null,
+    // @ts-ignore
     hasCreate: null,
+    // @ts-ignore
     hideFilter: null,
+    // @ts-ignore
     ids: null,
+    // @ts-ignore
     loaded: null,
+    // @ts-ignore
     loading: null,
+    // @ts-ignore
     onSelect: null,
+    // @ts-ignore
     onToggleItem: null,
+    // @ts-ignore
     onUnselectItems: null,
+    // @ts-ignore
     page: null,
+    // @ts-ignore
     perPage: null,
+    // @ts-ignore
     refetch: null,
+    // @ts-ignore
     resource: null,
+    // @ts-ignore
     selectedIds: null,
+    // @ts-ignore
     setFilters: null,
+    // @ts-ignore
     setPage: null,
+    // @ts-ignore
     setPerPage: null,
+    // @ts-ignore
     setSort: null,
+    // @ts-ignore
     showFilter: null,
+    // @ts-ignore
     total: null,
 });
 

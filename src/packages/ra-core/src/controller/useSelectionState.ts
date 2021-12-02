@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef } from 'react';
 import { useSafeSetState } from '../util';
 import { Identifier } from '../types';
 
-const defaultSelection = [];
+const defaultSelection: any[] = [];
 
 export interface SelectionState {
     selectedIds: Identifier[];

@@ -33,7 +33,7 @@ import ListPaginationContext, {
  * @see ListContext
  * @see ListFilterContext
  */
-const ListContextProvider = ({ value, children }) => (
+const ListContextProvider = ({ value, children }: any) => (
     <ListContext.Provider value={value}>
         <ListFilterContext.Provider value={usePickFilterContext(value)}>
             <ListSortContext.Provider value={usePickSortContext(value)}>

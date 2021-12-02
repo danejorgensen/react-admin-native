@@ -24,6 +24,7 @@ const useExpanded = (
 ): [boolean, () => void] => {
     const dispatch = useDispatch();
     const expandedList = useSelector<ReduxState, Identifier[]>(
+        // @ts-ignore
         (reduxState: ReduxState) =>
             reduxState.admin.resources[resource]
                 ? reduxState.admin.resources[resource].list.expanded

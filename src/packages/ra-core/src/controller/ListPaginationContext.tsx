@@ -39,12 +39,19 @@ import { ListControllerProps } from './useListController';
  * };
  */
 const ListPaginationContext = createContext<ListPaginationContextValue>({
+    // @ts-ignore
     loading: null,
+    // @ts-ignore
     page: null,
+    // @ts-ignore
     perPage: null,
+    // @ts-ignore
     setPage: null,
+    // @ts-ignore
     setPerPage: null,
+    // @ts-ignore
     total: null,
+    // @ts-ignore
     resource: null,
 });
 

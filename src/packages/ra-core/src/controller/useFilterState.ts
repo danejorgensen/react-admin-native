@@ -76,6 +76,7 @@ export default ({
             permanentFilterProp.current = permanentFilter;
             setFilterValue({
                 ...permanentFilter,
+                // @ts-ignore
                 ...filterToQuery(latestValue.current),
             });
         }

@@ -40,9 +40,13 @@ import { ListControllerProps } from './useListController';
 const ListFilterContext = createContext<ListFilterContextValue>({
     displayedFilters: null,
     filterValues: null,
+    // @ts-ignore
     hideFilter: null,
+    // @ts-ignore
     setFilters: null,
+    // @ts-ignore
     showFilter: null,
+    // @ts-ignore
     resource: null,
 });
 

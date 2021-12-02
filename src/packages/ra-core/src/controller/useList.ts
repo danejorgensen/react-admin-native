@@ -72,6 +72,7 @@ export const useList = (props: UseListOptions): UseListValue => {
         data: RecordMap;
         ids: Identifier[];
         total: number;
+        // @ts-ignore
     }>(() => ({
         data: Array.isArray(data) ? indexById(data) : {},
         ids: Array.isArray(ids) ? ids : [],
@@ -85,6 +86,7 @@ export const useList = (props: UseListOptions): UseListValue => {
     });
 
     // sort logic
+    // @ts-ignore
     const { sort, setSort: setSortObject } = useSortState(initialSort);
     const setSort = useCallback(
         (field: string, order = 'ASC') => {
@@ -161,6 +163,7 @@ export const useList = (props: UseListOptions): UseListValue => {
         if (!loaded) return;
 
         // 1. filter
+        // @ts-ignore
         let tempData = data.filter(record =>
             Object.entries(filterValues).every(([filterName, filterValue]) => {
                 const recordValue = get(record, filterName);
