@@ -142,7 +142,7 @@ const useMutation = (
     /* eslint-disable react-hooks/exhaustive-deps */
     const mutate = useCallback(
         (
-            callTimeQuery?: Partial<Mutation> | Event,
+            callTimeQuery?: Partial<Mutation>, /// | Event,
             callTimeOptions?: MutationOptions
         ): void | Promise<any> => {
             const finalDataProvider = hasDeclarativeSideEffectsSupport(
@@ -232,7 +232,7 @@ export interface MutationOptions {
 
 export type UseMutationValue = [
     (
-        query?: Partial<Mutation> | Event,
+        query?: Partial<Mutation>, /// | Event,
         options?: Partial<MutationOptions>
     ) => void | Promise<any>,
     {
@@ -279,7 +279,7 @@ export type UseMutationValue = [
  */
 const mergeDefinitionAndCallTimeParameters = (
     query?: Mutation,
-    callTimeQuery?: Partial<Mutation> | Event,
+    callTimeQuery?: Partial<Mutation>, /// | Event,
     options?: MutationOptions,
     callTimeOptions?: MutationOptions
 ): {
@@ -288,21 +288,21 @@ const mergeDefinitionAndCallTimeParameters = (
     payload?: object;
     options: MutationOptions;
 } => {
-    if (!query && (!callTimeQuery || callTimeQuery instanceof Event)) {
+    if (!query && (!callTimeQuery)) { /// || callTimeQuery instanceof Event)) {
         throw new Error('Missing query either at definition or at call time');
     }
 
-    const event = callTimeQuery as Event;
-    if (callTimeQuery instanceof Event || !!event?.preventDefault)
-        return {
-            // @ts-ignore
-            type: query.type,
-            // @ts-ignore
-            resource: query.resource,
-            // @ts-ignore
-            payload: query.payload,
-            options: sanitizeOptions(options),
-        };
+///    const event = callTimeQuery as Event;
+///    if (callTimeQuery instanceof Event || !!event?.preventDefault)
+///        return {
+///            // @ts-ignore
+///            type: query.type,
+///            // @ts-ignore
+///            resource: query.resource,
+///            // @ts-ignore
+///            payload: query.payload,
+///            options: sanitizeOptions(options),
+///        };
 
     if (query) {
         return {

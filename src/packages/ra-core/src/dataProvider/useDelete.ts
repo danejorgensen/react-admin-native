@@ -61,7 +61,7 @@ const useDelete = <RecordType extends Record = Record>(
 
     const deleteOne = useCallback(
         (
-            resource?: string | Partial<Mutation> | Event,
+            resource?: string | Partial<Mutation>, /// | Event,
             id?: Identifier | Partial<MutationOptions>,
             previousData?: any,
             options?: MutationOptions
@@ -78,7 +78,7 @@ const useDelete = <RecordType extends Record = Record>(
                 return mutate(query, options);
             } else {
                 return mutate(
-                    resource as Mutation | Event,
+                    resource as Mutation, /// | Event,
                     id as MutationOptions
                 );
             }
@@ -91,7 +91,7 @@ const useDelete = <RecordType extends Record = Record>(
 
 type UseDeleteHookValue<RecordType extends Record = Record> = [
     (
-        resource?: string | Partial<Mutation> | Event,
+        resource?: string | Partial<Mutation>, /// | Event,
         id?: Identifier | Partial<MutationOptions>,
         previousData?: RecordType,
         options?: MutationOptions

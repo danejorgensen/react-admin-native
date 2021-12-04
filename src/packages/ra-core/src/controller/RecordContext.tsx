@@ -21,6 +21,7 @@ import { Record } from '../types';
  * };
  */
 export const RecordContext = createContext<Record | Omit<Record, 'id'>>(
+  // @ts-ignore
     undefined
 );
 
@@ -30,6 +31,7 @@ export const RecordContextProvider = <
     children,
     value,
 }: RecordContextOptions<RecordType>) => (
+    // @ts-ignore
     <RecordContext.Provider value={value}>{children}</RecordContext.Provider>
 );
 

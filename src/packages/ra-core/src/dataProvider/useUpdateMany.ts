@@ -61,7 +61,7 @@ const useUpdateMany = <RecordType extends Record = Record>(
 
     const updateMany = useCallback(
         (
-            resource?: string | Partial<Mutation> | Event,
+            resource?: string | Partial<Mutation>, /// | Event,
             ids?: Identifier[] | Partial<MutationOptions>,
             data?: Partial<RecordType>,
             options?: MutationOptions
@@ -78,7 +78,7 @@ const useUpdateMany = <RecordType extends Record = Record>(
                 return mutate(query, options);
             } else {
                 return mutate(
-                    resource as Mutation | Event,
+                    resource as Mutation, /// | Event,
                     ids as MutationOptions
                 );
             }
@@ -91,7 +91,7 @@ const useUpdateMany = <RecordType extends Record = Record>(
 
 type UseUpdateManyHookValue<RecordType extends Record = Record> = [
     (
-        resource?: string | Partial<Mutation> | Event,
+        resource?: string | Partial<Mutation>, /// | Event,
         ids?: Identifier[] | Partial<MutationOptions>,
         data?: Partial<RecordType>,
         options?: MutationOptions

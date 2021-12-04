@@ -4,7 +4,7 @@ import { OnSuccess, OnFailure } from '../types';
 
 export const SideEffectContext = createContext<SideEffectContextValue>({});
 
-export const SideEffectContextProvider = ({ children, value }) => (
+export const SideEffectContextProvider = ({ children, value }: any) => (
     <SideEffectContext.Provider value={value}>
         {children}
     </SideEffectContext.Provider>

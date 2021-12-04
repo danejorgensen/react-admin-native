@@ -60,7 +60,7 @@ const useCreate = <RecordType extends Record = Record>(
 
     const create = useCallback(
         (
-            resource?: string | Partial<Mutation> | Event,
+            resource?: string | Partial<Mutation>, /// | Event,
             data?: Partial<RecordType>,
             options?: MutationOptions
         ) => {
@@ -75,7 +75,7 @@ const useCreate = <RecordType extends Record = Record>(
                 return mutate(query, options);
             } else {
                 return mutate(
-                    resource as Mutation | Event,
+                    resource as Mutation, /// | Event,
                     data as MutationOptions
                 );
             }
@@ -88,7 +88,7 @@ const useCreate = <RecordType extends Record = Record>(
 
 type UseCreateHookValue<RecordType extends Record = Record> = [
     (
-        resource?: string | Partial<Mutation> | Event,
+        resource?: string | Partial<Mutation>, /// | Event,
         data?: Partial<RecordType>,
         options?: MutationOptions
     ) => void | Promise<any>,
